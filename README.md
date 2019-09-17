@@ -3,7 +3,7 @@ ansible-role-service
 
 [![Build Status](https://travis-ci.org/kevincoakley/ansible-role-service.svg?branch=master)](https://travis-ci.org/kevincoakley/ansible-role-service)
 
-Manage services for CentOS 7, Ubuntu 14.04 and Ubuntu 16.04
+Manage services for CentOS 7 and Ubuntu 18.04
 
 Requirements
 ------------

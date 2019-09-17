@@ -1,4 +1,4 @@
 ---
-service: []
-service_enabled: yes
+service: {}
+service_enabled: true
 service_state: started

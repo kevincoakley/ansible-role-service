@@ -1,7 +1,12 @@
 ---
 - name: Manage Services
   service:
-    name: "{{ item.name }}"
+    arguments: "{{ item.arguments | default(omit) }}"
     enabled: "{{ item.enabled | default(service_enabled) }}"
+    name: "{{ item.name }}"
+    pattern: "{{ item.pattern | default(omit) }}"
+    runlevel: "{{ item.runlevel | default(omit) }}"
+    sleep: "{{ item.sleep | default(omit) }}"
     state: "{{ item.state | default(service_state) }}"
+    use: "{{ item.use | default(omit) }}"
   with_items: "{{ service }}"

@@ -1,0 +1,22 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  vars:
+    - service:
+        - name: sshd
+
+  roles:
+    - ansible-role-service
+
+  post_tasks:
+    - name: Test is sshd is running (RedHat)
+      command: /usr/bin/systemctl is-active --quiet sshd
+      changed_when: false
+      when: ansible_os_family == "RedHat"
+
+    - name: Test is sshd is running (Debian)
+      command: /bin/systemctl is-active --quiet sshd
+      changed_when: false
+      when: ansible_os_family == "Debian"
